@@ -7,8 +7,3 @@ VTemplate模板引擎采用LGPL开源许可协议，因此您可以自由修改�
 LGPL许可保障原作者的知识产权，去除VTemplate模板引擎的原有特征(文件名、变量函数名等)或抄袭程序代码都是违法的，请您尊重原作者的劳动成果。
 
 LGPL开源协议:http://www.opensource.org/licenses/lgpl-license.php
-
-项目托管：
-VTemplate项目托管在Google code上。
-URL: http://net-vtemplate.googlecode.com/
-SVN: http://net-vtemplate.googlecode.com/svn/src/
