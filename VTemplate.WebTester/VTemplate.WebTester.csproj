@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3A84BBBF-4E73-4D1D-BD96-AD6458655294}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VTemplate.WebTester</RootNamespace>
+    <AssemblyName>VTemplate.WebTester</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="template\container_tag.html" />
+    <Content Include="template\panel_tag_test.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="panel_tag_test.ashx.cs">
+      <DependentUpon>panel_tag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\CnblogsNewsRender.cs" />
+    <Compile Include="Core\CnblogsNewsRenderMethod.cs" />
+    <Compile Include="Core\News.cs" />
+    <Compile Include="Core\NewsDbProvider.cs" />
+    <Compile Include="iftag_test.ashx.cs">
+      <DependentUpon>iftag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="PageBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="fortag_test.ashx.cs">
+      <DependentUpon>fortag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="foreachtag_test.ashx.cs">
+      <DependentUpon>foreachtag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="TemplatePageBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="templatetag_test.ashx.cs">
+      <DependentUpon>templatetag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="varexp_test.ashx.cs">
+      <DependentUpon>varexp_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="serverdatatag_test.ashx.cs">
+      <DependentUpon>serverdatatag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="commontemplate_test.ashx.cs">
+      <DependentUpon>commontemplate_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="blogarchive.ashx.cs">
+      <DependentUpon>blogarchive.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="datareadertag_test.ashx.cs">
+      <DependentUpon>datareadertag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="cnblogs_newslist.ashx.cs">
+      <DependentUpon>cnblogs_newslist.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="template_include_test.ashx.cs">
+      <DependentUpon>template_include_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="templaterender_test.ashx.cs">
+      <DependentUpon>templaterender_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="templaterendermethod_test.ashx.cs">
+      <DependentUpon>templaterendermethod_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="functiontag_test.ashx.cs">
+      <DependentUpon>functiontag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="propertytag_test.ashx.cs">
+      <DependentUpon>propertytag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="templatecomment_test.ashx.cs">
+      <DependentUpon>templatecomment_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="groupdata_test.ashx.cs">
+      <DependentUpon>groupdata_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="pagedata_test.ashx.cs">
+      <DependentUpon>pagedata_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="settag_test.ashx.cs">
+      <DependentUpon>settag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="outputtag_test.ashx.cs">
+      <DependentUpon>outputtag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="importtag_test.ashx.cs">
+      <DependentUpon>importtag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="masterpage_test.ashx.cs">
+      <DependentUpon>masterpage_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="currentrendertag_test.ashx.cs">
+      <DependentUpon>currentrendertag_test.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="attributeexp_test.ashx.cs">
+      <DependentUpon>attributeexp_test.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VTemplate.Engine\VTemplate.Engine.csproj">
+      <Project>{FFE421FA-C56D-466D-BCBE-5C451F2C82BC}</Project>
+      <Name>VTemplate.Engine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="template\fortag_test.html" />
+    <Content Include="fortag_test.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iftag_test.ashx" />
+    <Content Include="template\iftag_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="foreachtag_test.ashx" />
+    <Content Include="template\foreachtag_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="templatetag_test.ashx" />
+    <Content Include="template\templatetag_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="template\varexp_test.html" />
+    <Content Include="varexp_test.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="serverdatatag_test.ashx" />
+    <Content Include="template\commontemplate_usertable.html" />
+    <Content Include="template\serverdatatag_test.html" />
+    <Content Include="template\commontemplate_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="commontemplate_test.ashx" />
+    <Content Include="template\blogarchive.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="blogarchive.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\member.mdb">
+    </Content>
+    <Content Include="datareadertag_test.ashx" />
+    <Content Include="template\datareadertag_test.html" />
+    <Content Include="template\cnblogs_newslist.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cnblogs_newslist.ashx" />
+    <Content Include="template\cnblogs_newsdata.html" />
+    <Content Include="template\inc_content.html" />
+    <Content Include="template\template_include_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="template_include_test.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="templaterender_test.ashx" />
+    <Content Include="template\templaterender_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="templaterendermethod_test.ashx" />
+    <Content Include="template\templaterendermethod_test.html" />
+    <Content Include="template\functiontag_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="functiontag_test.ashx" />
+    <Content Include="template\propertytag_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="propertytag_test.ashx" />
+    <Content Include="template\templatecomment_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="templatecomment_test.ashx" />
+    <Content Include="template\groupdata_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="groupdata_test.ashx" />
+    <Content Include="template\pagedata_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pagedata_test.ashx" />
+    <Content Include="template\settag_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="settag_test.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="outputtag_test.ashx" />
+    <Content Include="template\outputtag_test.html" />
+    <Content Include="template\importtag_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="importtag_test.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="masterpage_test.ashx" />
+    <Content Include="template\masterpage_test.html" />
+    <Content Include="template\masterpage_content.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="currentrendertag_test.ashx" />
+    <Content Include="template\currentrendertag_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="attributeexp_test.ashx" />
+    <Content Include="template\attributeexp_test.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="panel_tag_test.ashx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3821</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

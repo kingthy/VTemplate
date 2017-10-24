@@ -1,0 +1,31 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试If..ElseIf...Else标签 </title>
+</head>
+<body>
+<vt:if var="user.age" value="10" compare="<">
+小于10岁
+<vt:elseif value="20" compare="<=" />
+小于等于20岁
+<vt:elseif value="30" compare="<" />
+小于30岁
+<vt:else />
+大于30岁
+</vt:if>
+
+<vt:if var="user.type" value="A">A
+<vt:elseif value="B" />
+B
+<vt:elseif value="2" />
+C
+</vt:if>
+
+<vt:if var="user.name" value="张" compare="$=">张先生
+<vt:elseif value="王" compare="$=" />
+王先生
+<vt:else />
+先生
+</vt:if>
+</body>
+</html>

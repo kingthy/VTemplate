@@ -1,0 +1,26 @@
+﻿<table border="0">
+<tr>
+<th>序号</th>
+<th>姓名</th>
+<th>年龄</th>
+</tr>
+<vt:foreach from="$#.users" item="#.user" index="#.i">
+<vt:if var="#.i.IsEven" value="true">
+<tr>
+<td style="background-color:#EAEAEA">{$:#.i}</td>
+<td style="background-color:#EAEAEA">{$:#.user.name htmlencode='true'}</td>
+<td style="background-color:#EAEAEA">{$:#.user.age}</td>
+</tr>
+<vt:else>
+<tr>
+<td>{$:#.i}</td>
+<td>{$:#.user.name htmlencode='true'}</td>
+<td>{$:#.user.age}</td>
+</tr>
+</vt:if>
+<vt:foreachelse />
+<tr>
+<td colspan="3">没有用户数据</td>
+</tr>
+</vt:foreach>
+</table>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 博客日记测试页面 </title>
+<style type="text/css">
+.bloglog 
+{
+	border-bottom: #8ae38c 1px dotted; border-left: #8ae38c 1px dotted; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top: #8ae38c 1px dotted; border-right: #8ae38c 1px dotted; padding-top: 5px;
+}
+.blogsplit 
+{
+	border-bottom: #8ae38c 1px dotted; border-left: #8ae38c 1px dotted; padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; height: 1px; border-top: #8ae38c 1px dotted; border-right: #8ae38c 1px dotted; padding-top: 0px;
+}
+.blogcomment
+{
+	padding-bottom: 5px; line-height: 25px; padding-left: 5px; padding-right: 5px; padding-top: 5px;
+}
+.evenfloor 
+{
+	background-color: #C8E7BC;
+}
+</style>
+</head>
+<body>
+<div class="bloglog"><strong>{$:blogarchive.title htmlencode="true"}</strong> 
+
+  <hr class="blogsplit"/>  {$:blogarchive.content}  <div style="margin-bottom: 20px" align="right">posted @ {$:blogarchive.time format="yyyy-MM-dd HH:mm"} {$:blogarchive.author htmlencode="true"} 阅读(1) 评论(2)</div>
+
+<strong>评论列表</strong>
+<vt:foreach from="$blogarchive.comments" item="#.comment" index="#.floor">
+<hr class="blogsplit"/>
+<vt:if var="#.floor.iseven" value="true">
+<div class="blogcomment evenfloor">#{$:#.floor}楼 {$:#.comment.time format="yyyy-MM-dd HH:mm"} | {$:#.comment.author htmlencode="true"} </div> <div style="padding-left: 20px">{$:#.comment.content htmlencode="true"}</div>
+<vt:else />
+<div class="blogcomment">#{$:#.floor}楼 {$:#.comment.time format="yyyy-MM-dd HH:mm"} | {$:#.comment.author htmlencode="true"} </div> <div style="padding-left: 20px">{$:#.comment.content htmlencode="true"}</div>
+</vt:if>
+</vt:foreach>
+ 
+
+
+</div>
+</body>
+</html>

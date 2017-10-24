@@ -1,0 +1,26 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试注释标签 </title>
+</head>
+<body>
+以下是HTML的普通注释
+<!--
+这里的注释会输出
+在这里写的VT标记会被VT解析,如:当前时间<vt:serverdata type="time" output="true" />
+<vt:for from="1" to="2" index="i">
+当前第{$:#.i}次循环
+</vt:for>
+---><br />
+将会被输出<br /><br />
+以下是VT的注释代码
+<!--vt[
+这个注释不会输出
+里面可以写任意的VT标记,都不会被解析,如:当前时间<vt:serverdata type="time" output="true" />
+<vt:for from="1" to="2" index="i">
+当前第{$:#.i}次循环
+</vt:for>
+]--><br />
+没有任何输出.
+</body>
+</html>

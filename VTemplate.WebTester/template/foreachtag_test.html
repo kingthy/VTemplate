@@ -1,0 +1,88 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试ForEach...ForEachElse标签 </title>
+</head>
+<body>
+List集合数据<br />
+<table border="0">
+<tr>
+<th>序号</th>
+<th>姓名</th>
+<th>年龄</th>
+</tr>
+<vt:foreach from="$users" item="user" index="i">
+<tr>
+<td>{$:i}
+<vt:if var="i.isfirst" value="true">首<vt:elseif var="i.islast" value="true" />尾<vt:else />中</vt:if></td>
+<td>{$:user.name htmlencode='true'}</td>
+<td>{$:user.age}</td>
+</tr>
+<vt:foreachelse />
+<tr>
+<td colspan="3">没有用户数据</td>
+</tr>
+</vt:foreach>
+</table>
+<hr />
+DataTable 数据<br />
+<table border="0">
+<tr>
+<th>序号</th>
+<th>姓名</th>
+<th>年龄</th>
+</tr>
+<vt:foreach from="$userTable" item="user" index="i">
+<tr>
+<td>{$:i}<vt:if var="i.isfirst" value="true">首<vt:elseif var="i.islast" value="true" />尾<vt:else />中</vt:if></td>
+<td><!--这种是采用字段名称方式取值-->{$:user.name htmlencode='true'}<!--也可采用下标方式取值:{$:user.0 htmlencode='true'}--></td>
+<td><!--这种是采用字段名称方式取值-->{$:user.age}<!--也可采用下标方式取值:{$:user.1 htmlencode='true'}--></td>
+</tr>
+<vt:foreachelse />
+<tr>
+<td colspan="3">没有用户数据</td>
+</tr>
+</vt:foreach>
+</table>
+<hr />
+Dictionary 数据<br />
+<table border="0">
+<tr>
+<th>序号</th>
+<th>姓名</th>
+<th>年龄</th>
+</tr>
+<vt:foreach from="$userDict" item="user" index="i">
+<tr>
+<td>{$:i}<vt:if var="i.isfirst" value="true">首<vt:elseif var="i.islast" value="true" />尾<vt:else />中</vt:if></td>
+<td><!--键存储的是姓名-->{$:user.key htmlencode='true'}</td>
+<td><!--值存储的是年龄-->{$:user.value}</td>
+</tr>
+<vt:foreachelse />
+<tr>
+<td colspan="3">没有用户数据</td>
+</tr>
+</vt:foreach>
+</table>
+<hr />
+数组 数据<br />
+<table border="0">
+<tr>
+<th>序号</th>
+<th>姓名</th>
+<th>年龄</th>
+</tr>
+<vt:foreach from="$userarray" item="user" index="i">
+<tr>
+<td>{$:i}<vt:if var="i.isfirst" value="true">首<vt:elseif var="i.islast" value="true" />尾<vt:else />中</vt:if></td>
+<td>{$:user.name htmlencode='true'}</td>
+<td>{$:user.age}</td>
+</tr>
+<vt:foreachelse />
+<tr>
+<td colspan="3">没有用户数据</td>
+</tr>
+</vt:foreach>
+</table>
+</body>
+</html>

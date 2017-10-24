@@ -1,0 +1,55 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>测试ForEach...ForEachElse标签</title>
+</head>
+<body>
+  <table border="0">
+    <tr>
+      <th>序号</th>
+      <th>姓名</th>
+      <th>年龄</th>
+      <th>性别</th>
+    </tr>
+    <vt:datareader var="users" connection="MemberDb" commandtext="select * from [member]" />
+    <vt:foreach from="$users" item="user" index="i">
+    <tr>
+      <td>{$:i}</td>
+      <td>{$:user.name htmlencode='true'}</td>
+      <td>{$:user.age}</td>
+      <td>
+        <vt:if var="user.sex" value="1">男
+        <vt:else />女
+        </vt:if>
+      </td>
+    </tr>
+    <vt:foreachelse />
+    <tr>
+      <td colspan="3">没有用户数据</td>
+    </tr>
+    </vt:foreach>
+  </table>
+  <br />
+  <form action="?" method="get">显示某个Id=
+    <input type="text" size="5" name="id" />
+    性别=<select name="sex"><option value="1">男</option><option value="2">女</option></select>
+    的用户资料&nbsp;&nbsp;
+    <input type="submit" value="提交" />
+    <br />
+  </form>
+  <vt:serverdata var="id" type="QueryString" item="id" />
+  <vt:serverdata var="sex" type="QueryString" item="sex" />
+  <vt:if var="id" value="" compare="!=">
+  <vt:datareader var="user" connection="MemberDb" commandtext="select * from [member] where id=@p0 and sex=@p1" parameters="$id" parameters="$sex" rowindex="0" />
+  <vt:if var="#.user" value="">
+未找到 Id = {$:id} 且 sex = {$:sex} 的用户记录
+  <vt:else />
+当前用户资料:
+  <br />Id = {$:#.user.Id}
+  <br />Name = {$:#.user.Name htmlencode='true'}
+  <br />Age  = {$:#.user.Age}
+  <br />Sex  = {$:#.user.Sex}
+  </vt:if>
+  </vt:if>
+</body>
+</html>

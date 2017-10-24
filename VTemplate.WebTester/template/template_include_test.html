@@ -1,0 +1,22 @@
+﻿<style>
+body {font-size:12px;}
+</style>
+<fieldset>
+<legend>&lt;vt:template&gt;标签的输出结果</legend>
+我是外部的变量{$:#.var1}。 <br />
+我是外部的foreach标签：<br />
+<vt:foreach from="$#.names" item="#.name" index="#.i"> 
+外部的第{$:#.i}个名字叫{$:#.name}。 <br />
+</vt:foreach>
+<vt:template id="inc" file="inc_content.html" /> 
+</fieldset>
+<br /><br />
+<fieldset>
+<legend>&lt;vt:include&gt;标签的输出结果</legend>
+我是外部的变量{$:#.var1}。 <br />
+我是外部的foreach标签：<br />
+<vt:foreach from="$#.names" item="#.name" index="#.i"> 
+外部的第{$:#.i}个名字叫{$:#.name}。 <br />
+</vt:foreach>
+<vt:include id="inc" file="inc_content.html" /> 
+</fieldset>

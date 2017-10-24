@@ -1,0 +1,50 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试template标签 </title>
+</head>
+<body>
+男用户列表
+<table border="0">
+<tr>
+<th>序号</th>
+<th>姓名</th>
+<th>年龄</th>
+</tr>
+<vt:foreach from="$users" item="user" index="i">
+<tr>
+<td>{$:i}</td>
+<td>{$:user.name htmlencode='true'}</td>
+<td>{$:user.age}</td>
+</tr>
+<vt:foreachelse />
+<tr>
+<td colspan="3">没有用户数据</td>
+</tr>
+</vt:foreach>
+</table>
+<hr />
+<vt:template id="female">
+女用户列表
+<table border="0">
+<tr>
+<th>序号</th>
+<th>姓名</th>
+<th>年龄</th>
+</tr>
+<vt:foreach from="$#.users" item="#.user" index="#.i">
+<tr>
+<td>{$:#.i}</td>
+<td>{$:#.user.name htmlencode='true'}</td>
+<td>{$:#.user.age}</td>
+</tr>
+<vt:foreachelse />
+<tr>
+<td colspan="3">没有用户数据</td>
+</tr>
+</vt:foreach>
+</table>
+</vt:template>
+</body>
+</html>

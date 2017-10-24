@@ -1,0 +1,19 @@
+﻿<vt:include file="container_tag.html" remark="导入MasterPage页面" />
+
+<!--vt[此面板下的内容只在container_tag里的panel标签输出]-->
+<vt:panel container="content">
+<vt:for from="1" to="9" index="$i">
+<vt:for from="1" to="$i" index="$j">
+<vt:expression var="r" args="$i" args="$j" expression="{0}*{1}" />{$:i}*{$:j}={$:r}&nbsp;&nbsp;&nbsp;&nbsp;
+</vt:for>
+<br />
+</vt:for>
+</vt:panel>
+
+<vt:panel container="content">
+<br />现在时间是：<vt:serverdata type="time" output="true" />
+</vt:panel>
+
+<vt:panel container="bottom">
+这里是底部栏数据
+</vt:panel>

@@ -1,0 +1,16 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试Import标签 </title>
+</head>
+<body>
+<h1>不使用import标签的例子:</h1><br />
+判断大小: 1 与 2 比较,最小数是: <vt:function method="Min" type="System.Math" args="1" args="2" output="true" /><br />
+判断大小: 10 与 20 比较,最大数是: <vt:function method="Max" type="System.Math" args="10" args="20" output="true" /><br />
+<br />
+<h1>使用import标签的例子:</h1><br />
+<vt:import var="math" type="System.Math" />
+判断大小: 1 与 2 比较,最小数是: <vt:function method="Min" type="$math" args="1" args="2" output="true" /><br />
+判断大小: 10 与 20 比较,最大数是: <vt:function method="Max" type="$math" args="10" args="20" output="true" /><br />
+</body>
+</html>

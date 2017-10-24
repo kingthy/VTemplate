@@ -1,0 +1,7 @@
+﻿我是包含文件里的变量 {$:#.var1}。 <br />
+我是包含文件里的foreach标签: <br />
+<vt:foreach from="$#.names" item="#.name" index="#.i"> 
+包含文件的第{$:#.i}个名字叫{$:#.name}。 <br />
+<vt:foreachelse />
+包含文件里没有数据
+</vt:foreach>

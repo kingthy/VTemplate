@@ -1,0 +1,32 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试property标签 </title>
+<link rel="stylesheet" type="text/css" href="http://news.cnblogs.com/common/screen_base.css" />
+</head>
+<body>
+<!--获取静态属性-->
+<vt:property var="time" field="Now" type="System.DateTime" />现在时间是:{$:time format='yyyy-MM-dd HH:mm:ss'}<br />
+<vt:property var="context" field="Current" type="System.Web.HttpContext" />
+服务器名称: {$:#.context.server.MachineName}<br />
+
+<!--获取变量中的属性字段-->
+<vt:property var="request" field="Request" type="$#.context" />
+当前访问的页面地址: {$:#.request.Url}<br />
+您的IP地址: {$:#.request.UserHostAddress}<br />
+<br />
+
+<div class="side_block">
+    <h3 class="title_yellow">热点新闻</h3>
+    <ul class="topnews block_list bt">
+    <vt:property var="hotingnewsdata" field="HotingNews" type="VTemplate.WebTester.propertytag_test" />
+    <vt:foreach from="$#.hotingnewsdata" item="news" index="i">
+    <vt:function var="newsurl" method="GetNewsUrl" type="VTemplate.WebTester.Core.NewsDbProvider" args="$#.news" />
+    <li>
+    <a href="{$:#.newsurl}" title="{$:#.news.title htmlencode='true'}">{$:#.news.title htmlencode='true'}...</a>
+    </li>
+    </vt:foreach>
+    </ul>
+</div>
+</body>
+</html>

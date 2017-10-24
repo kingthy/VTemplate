@@ -1,0 +1,68 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试分页数据 </title>
+<style>
+#list ul
+{
+	clear: both;
+    list-style:none;
+    margin: 0px;
+}
+#list ul li{
+    float: left;
+    padding: 3px;
+}
+</style>
+</head>
+<body>
+<div id="list">
+  <vt:foreach id="pagetable" from="$#.pagedata" item="data" index="i" pagesize="10" remark="pagedata变量只接收当前页的数据列表集合">
+  <ul>
+     <li><vt:expression expression="{0}+({1}-1)*{2}" args="#.i.value" args="$this.pagenumber" args="$this.pagesize" output="true" /></li>
+     <li>{$:#.data}</li>
+  </ul>
+  </vt:foreach>
+</div>
+<br /><br /><br />
+<div>分页样式一: 
+<vt:function var="firstpageurl" method="GetPageUrl" type="$this" args="first" />
+<vt:function var="previouspageurl" method="GetPageUrl" type="$this" args="previous" />
+<vt:function var="nextpageurl" method="GetPageUrl" type="$this" args="next" />
+<vt:function var="lastpageurl" method="GetPageUrl" type="$this" args="last" />
+<vt:if var="this.pagenumber" value="1" compare="<=">[首页] [上页]<vt:else />[<a href="{$:#.firstpageurl}">首页</a>] [<a href="{$:#.previouspageurl}">上页</a>]</vt:if> 
+<vt:if var="this.pagenumber" value="$this.pagecount" compare=">=">[下页] [尾页]<vt:else />[<a href="{$:#.nextpageurl}">下页</a>] [<a href="{$:#.lastpageurl}">尾页</a>]</vt:if>&nbsp;&nbsp;
+页码:<strong>{$:this.pagenumber}</strong>/<strong>{$:this.pagecount}</strong>&nbsp;&nbsp;
+<select onchange="self.location.href=this.value;">
+<vt:for from="1" to="$this.pagecount" index="i">
+<vt:if var="#.i.value" value="$this.pagenumber">
+<option value="{$:#.i call='GetPageNavigation'}" selected="selected">第 {$:#.i} 页</option>
+<vt:else />
+<option value="{$:#.i call='GetPageNavigation'}">第 {$:#.i} 页</option>
+</vt:if>
+</vt:for>
+</select>
+</div>
+<br />
+<br />
+<div>分页样式二: 
+
+页码:<strong>{$:this.pagenumber}</strong>/<strong>{$:this.pagecount}</strong>&nbsp;&nbsp;
+<vt:if var="this.pagenumber" value="1" compare="<=">[首页] [上页]<vt:else />[<a href="{$:#.firstpageurl}">首页</a>] [<a href="{$:#.previouspageurl}">上页</a>]</vt:if> 
+<vt:expression var="firstpageno" expression="{0}-5" args="$this.pagenumber" />
+<vt:function var="firstpageno" method="Max" type="System.Math" args="$#.firstpageno" args="1"  />
+<vt:expression var="lastpageno" expression="{0}+10" args="$firstpageno" />
+<vt:function var="lastpageno" method="Min" type="System.Math" args="$#.lastpageno" args="$this.pagecount"  />
+<vt:for from="$#.firstpageno" to="$#.lastpageno" index="i">
+<vt:if var="#.i.value" value="$this.pagenumber">
+<font color="red">{$:i}</font>
+<vt:else />
+<vt:function var="pageurl" method="GetPageNavigation" type="$this" args="$#.i" />
+<a href="{$:#.pageurl}">{$:#.i}</a>
+</vt:if>
+</vt:for>
+<vt:if var="this.pagenumber" value="$this.pagecount" compare=">=">[下页] [尾页]<vt:else />[<a href="{$:#.nextpageurl}">下页</a>] [<a href="{$:#.lastpageurl}">尾页</a>]</vt:if>
+</div>
+</body>
+</html>

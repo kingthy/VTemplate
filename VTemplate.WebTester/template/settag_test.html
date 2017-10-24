@@ -1,0 +1,44 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>测试Set标签 </title>
+</head>
+<body>
+    现在时间:<vt:serverdata var="now" type="Time" output="true" />
+    <br />
+    <!--vt[将另外一个变量的值赋给变量time]-->
+    <vt:set var="time" value="$now" />
+    当前时间:{$:time format="yyyy-MM-dd HH:mm"}<br />
+    <!--vt[多个变量值的拼凑实现]-->
+    年-月-日: <vt:set var="u" value="$#.time.Year" value="$#.time.Month" value="$#.time.Day" format="{0}-{1}-{2}" output="true" />
+    <hr />
+    测试对某个template内的变量赋值<br />
+    <vt:for from="1" to="100000"></vt:for>
+    <vt:template id="test">
+    test 模板块里的变量时间 <vt:serverdata var="#.time" type="Time" output="true" /><br />
+    </vt:template>
+    test 模板块里的变量在外部显示时的值:{$:#test.time},根模板块的时间 {$:time}<br />
+    <vt:set var="#test.time" value="2008-01-01" />
+    test 模板块里的变量被赋值后的值:{$:#test.time} ,根模板块的时间 {$:time}
+    <hr />    
+    
+    <vt:serverdata var="t" type="QueryString" item="t" />
+    显示的新闻类型: 
+    <!--vt[根据查询参数t对type赋于不同的值,以便显示不同的数据]-->
+    <vt:if var="t" value="1" value="hoting">
+    <vt:set var="type" value="hoting" output="true" />
+    <vt:else />
+    <vt:set var="type" value="relating" output="true" />
+    </vt:if><br />
+    <vt:function var="newsdata" method="GetNewsData" type="VTemplate.WebTester.Core.NewsDbProvider" args="$#.type">
+    <ul class="topnews block_list bt">
+        <vt:foreach from="$#.newsdata" item="news" index="i" id="newslist">
+        <vt:function var="newsurl" method="GetNewsUrl" type="VTemplate.WebTester.Core.NewsDbProvider" args="$#.news" />
+      <li>
+        <a href="{$:#.newsurl}" title="{$:#.news.title htmlencode='true'}">{$:#.news.title htmlencode='true'}...</a>
+      </li>
+      </vt:foreach>
+    </ul>
+    </vt:function>
+</body>
+</html>

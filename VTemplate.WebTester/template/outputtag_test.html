@@ -1,0 +1,35 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试Output标签 </title>
+</head>
+<body>
+用&lt;vt:output&gt;标签来实现多级栏目的显示
+<hr />
+<vt:template id="categoriesbox">
+<vt:set var="#.deep" value="0" />
+<select name="categories" multiple="multiple" size="20" style="width:200px">
+<vt:include id="looplist">
+<vt:foreach from="$#.categories" item="#.category" index="#.i">
+<option value="{$:#.category.id}"><vt:for from="1" to="$#.deep">&nbsp;&nbsp;&nbsp;&nbsp;</vt:for>{$:#.category.name}</option>
+<vt:function var="#.child" method="GetCategories" type="$this" args="$#.category" />
+<vt:if var="#.child.count" value="0" compare=">"> 
+<vt:set var="#.categories" value="$#.child" />
+<vt:expression var="#.deep" expression="{0}+1" args="$#.deep" />
+<vt:output tagid="looplist" />
+<vt:expression var="#.deep" expression="{0}-1" args="$#.deep" />
+</vt:if>
+</vt:foreach>
+</vt:include>
+</select>
+</vt:template>
+<hr />
+<!--vt[重设置id="categoriesbox"的模板块里的变量categories为根模板块里的categories变量值]-->
+<vt:set var="#categoriesbox.categories" value="$categories" />
+<vt:output tagid="categoriesbox" />
+<hr />
+用&lt;vt:output&gt;标签输出某个文件的内容
+<hr />
+<textarea style="width:100%;height:200px;"><vt:output file="outputtag_test.html" /></textarea>
+</body>
+</html>

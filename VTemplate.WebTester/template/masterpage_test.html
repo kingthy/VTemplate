@@ -1,0 +1,12 @@
+﻿<vt:include file="masterpage_content.html" remark="导入MasterPage页面" />
+<vt:set var="MasterPage" value="0" remark="设置一个变量,用于标示当前不处于MasterPage页中" />
+<!--vt[根据MasterPage变量值来判断子页面的内容是否需要输出.这就限制了子页面的内容只在MasterPage页面中的output标签输出.]-->
+<vt:if id="PageContent" var="MasterPage" value="1">
+<!--vt[子页面的内容必须放在此if标签内]-->
+<vt:for from="1" to="9" index="i">
+<vt:for from="1" to="$i" index="j">
+<vt:expression var="r" args="$i" args="$j" expression="{0}*{1}" />{$:i}*{$:j}={$:r}&nbsp;&nbsp;&nbsp;&nbsp;
+</vt:for>
+<br />
+</vt:for>
+</vt:if>

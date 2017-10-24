@@ -1,0 +1,7 @@
+﻿    <ul class="topnews block_list bt">
+      <vt:foreach from="$#.newsdata" item="#.news" index="#.i" id="newslist">
+      <li>
+        <a href="{$:#.news.url}" title="{$:#.news.title htmlencode='true'}">{$:#.news.title htmlencode='true'}...</a>
+      </li>
+      </vt:foreach>
+    </ul>

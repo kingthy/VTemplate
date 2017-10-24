@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>博客园IT新闻</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="http://news.cnblogs.com/common/screen_base.css" />
+</head>
+<body>
+  <div class="side_block">
+    <h3 class="title_blue">相关新闻</h3>
+    <vt:template name="topnews" type="relating" file="cnblogs_newsdata.html" render="VTemplate.WebTester.Core.CnblogsNewsRenderMethod,VTemplate.WebTester" rendermethod="RenderNews" />
+  </div>
+  <div class="side_block">
+    <h3 class="title_yellow">热点新闻</h3>
+    <vt:template name="topnews" type="hoting" file="cnblogs_newsdata.html" render="VTemplate.WebTester.Core.CnblogsNewsRenderMethod,VTemplate.WebTester" rendermethod="RenderNews" />
+  </div>
+</body>
+</html>
+

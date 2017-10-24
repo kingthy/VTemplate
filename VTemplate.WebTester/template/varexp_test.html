@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试变量表达式 </title>
+</head>
+<body>
+我是文档（根）模板块的用户<br />
+我叫{$:user.name htmlencode="true"}，今年{$:user.age}岁，属于{$:user.age call="GetAgeRemark"}。我的描述说明:
+{$:user.description htmlencode="$user.needencode"}<br />
+<br />
+<vt:template id="t1">
+我是t1模板块的用户，我叫{$:#.user.name htmlencode="true"}，今年{$:#.user.age}岁，属于{$:#.user.age call="GetAgeRemark"}。我的描述说明:
+{$:#.user.description htmlencode="$#.user.needencode"}<br />
+<br />
+<vt:template id="t2">
+我是t2模板块的用户，我叫{$:#.user.name htmlencode="true"}，今年{$:#.user.age}岁，属于{$:#.user.age call="GetAgeRemark"}。我的描述说明:
+{$:#.user.description htmlencode="$#.user.needencode"}<br />
+<br />
+在t1模板块的用户叫{$:#t1.user.name htmlencode="true"}，今年{$:#t1.user.age}岁，属于{$:#t1.user.age call="GetAgeRemark"}。我的描述说明:
+{$:#t1.user.description htmlencode="$#t1.user.needencode"}<br />
+<br />
+在父级模板块的用户叫{$:##.user.name htmlencode="true"}，今年{$:##.user.age}岁，属于{$:##.user.age call="GetAgeRemark"}。我的描述说明:
+{$:##.user.description htmlencode="$##.user.needencode"}<br />
+<br />
+在文档模板块的用户叫{$:user.name htmlencode="true"}，今年{$:user.age}岁，属于{$:user.age call="GetAgeRemark"}。我的描述说明:
+{$:user.description htmlencode="$user.needencode"}<br />
+<br />
+</vt:template>
+</vt:template>
+
+<br />
+数组的"动态下标"测试:
+<br />
+<vt:for from="1" to="$IntArr.Length" index="i">
+    <vt:expression var="index" expression="{0}-1" args="$i" />
+    下标: {$:index}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值: <vt:function method="GetValue" type="$IntArr" args="$index" output="true" />
+    <br />
+</vt:for>
+<br />
+List集合的"动态下标"测试:
+<br />
+<vt:for from="1" to="$ListArr.Count" index="i">
+    <vt:expression var="index" expression="{0}-1" args="$i" />
+    下标: {$:index}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值: <vt:function method="get_Item" type="$ListArr" args="$index" output="true" />
+    <br />
+</vt:for>
+</body>
+</html>

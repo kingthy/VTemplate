@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTemplate.Engine", "VTemplate.Engine\VTemplate.Engine.csproj", "{FFE421FA-C56D-466D-BCBE-5C451F2C82BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTemplate.WebTester", "VTemplate.WebTester\VTemplate.WebTester.csproj", "{3A84BBBF-4E73-4D1D-BD96-AD6458655294}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFE421FA-C56D-466D-BCBE-5C451F2C82BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFE421FA-C56D-466D-BCBE-5C451F2C82BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFE421FA-C56D-466D-BCBE-5C451F2C82BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFE421FA-C56D-466D-BCBE-5C451F2C82BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A84BBBF-4E73-4D1D-BD96-AD6458655294}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A84BBBF-4E73-4D1D-BD96-AD6458655294}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A84BBBF-4E73-4D1D-BD96-AD6458655294}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A84BBBF-4E73-4D1D-BD96-AD6458655294}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

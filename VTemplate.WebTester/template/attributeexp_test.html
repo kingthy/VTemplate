@@ -1,0 +1,33 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试变量表达式 </title>
+</head>
+<body>
+<table width="100%" border="1">
+<tr>
+  <td>Id</td>
+  <td>姓名</td>
+  <td>等级</td>
+  <td>城市</td>
+  <td>省份</td>
+</tr>
+<vt:foreach from="$users" item="user">
+<!--vt[调用GetUserProfile方法共有两种方法，可以用<vt:set>，<vt:function>标签调用
+方法1： <vt:function var="profile" method="GetUserProfile" type="$this" userid="$user.id" />
+方法2： <vt:set var="profile" value="$this.GetUserProfile()" userid="$user.id" />
+
+以上方法中，较直观的就是<vt:set>标签，所以也是推荐使用的。
+]-->
+<vt:set var="profile" value="$this.GetUserProfile()" userid="$user.id" />
+<tr>
+  <td>{$:user.id}</td>
+  <td>{$:user.name}</td>
+  <td>{$:profile.level}</td>
+  <td>{$:profile.city}</td>
+  <td>{$:profile.Province}</td>
+</tr>
+</vt:foreach>
+</table>
+</body>
+</html>

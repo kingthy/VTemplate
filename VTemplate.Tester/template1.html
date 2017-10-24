@@ -1,0 +1,4 @@
+<vt:for from="9" to="1" index="i" step="-1" id="for1" name="ff">
+<vt:expression var="ii" args="i.value" expression="(10-{0})" />
+<vt:for from="$ii" to="9" index="j" name="ff"><vt:expression var="result" args="ii" args="j" expression="{0}*{1}" />{$:i.max.tostring()}*{$:j}={$:result format='00'}  </vt:for>
+</vt:for>

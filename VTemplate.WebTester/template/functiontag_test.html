@@ -1,0 +1,53 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试Function标签 </title>
+<link rel="stylesheet" type="text/css" href="http://news.cnblogs.com/common/screen_base.css" />
+</head>
+<body>
+<vt:function var="d" method="GetHotingNews" type="VTemplate.WebTester.functiontag_test"  />
+<!--调用静态方法-->
+<vt:function var="max" method="Max" type="System.Math" args="1" args="2"/>1 和 2 比较,最大值是{$:max}<br />
+<vt:function var="days" method="DaysInMonth" type="System.DateTime" args="2009" args="10" />2009年10月份共有{$:days}天<br />
+
+<!--调用变量的方法-->
+<vt:property var="time" field="Now" type="System.DateTime" />
+<vt:function var="UTCTime" method="ToUniversalTime" type="$time" />当前时间是{$:time},转换为UTC时间是:{$:UTCTime}<br />
+
+<!--调用静态方法-->
+ <div class="side_block">
+    <h3 class="title_blue">相关新闻</h3>
+    <ul class="topnews block_list bt">
+    <vt:foreach from="$#.newsdata" item="news" index="i">
+    <!--vt[调用自定义函数取得新闻的访问地址]-->
+    <vt:function var="newsurl" method="GetNewsUrl" args="$#.news" />
+    <li>
+    <a href="{$:#.newsurl}" title="{$:#.news.title htmlencode='true'}">{$:#.news.title htmlencode='true'}...</a>
+    </li>
+    </vt:foreach>
+</div>
+<div class="side_block">
+    <h3 class="title_yellow">热点新闻</h3>
+    <ul class="topnews block_list bt">
+    <vt:function var="hotingnewsdata" method="GetHotingNews" type="VTemplate.WebTester.functiontag_test" />
+    <vt:foreach from="$#.hotingnewsdata" item="news" index="i">
+    <!--vt[调用静态函数取得新闻的访问地址]-->
+    <vt:function var="newsurl" method="GetNewsUrl" type="VTemplate.WebTester.Core.NewsDbProvider" args="$#.news" />
+    <li>
+    <a href="{$:#.newsurl}" title="{$:#.news.title htmlencode='true'}">{$:#.news.title htmlencode='true'}...</a>
+    </li>
+    </vt:foreach>
+</div>
+ <div class="side_block">
+    <h3 class="title_blue">相关新闻</h3>
+    <ul class="topnews block_list bt">
+    <vt:foreach from="$#.newsdata" item="news" index="i">
+    <!--vt[利用变量标签的call属性调用自定义函数取得新闻的访问地址]-->
+    <li>
+    <a href="{$:#.news call='GetNewsUrl'}" title="{$:#.news.title htmlencode='true'}">{$:#.news.title htmlencode='true'}...</a>
+    </li>
+    </vt:foreach>
+</div>
+</ul>
+</body>
+</html>

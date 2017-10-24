@@ -1,0 +1,20 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> 测试ServerData标签 </title>
+</head>
+<body>
+服务器现在是<vt:serverdata type="time" output="true" /><br />
+<hr />
+<vt:serverdata var="request" type="request">
+访问的地址是:{$:request.url}<br />访问参数:{$:request.params.keyword}
+<hr />
+服务器变量列表：<br />
+<hr />
+<vt:foreach from="$request.ServerVariables" item="key" index="i">
+{$:i}、{$:key} = <vt:serverdata type="ServerVariables" item="$#.key" output="true" /> <br />
+<hr />
+</vt:foreach>
+</vt:serverdata>
+</body>
+</html>
